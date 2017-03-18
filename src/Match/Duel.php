@@ -48,7 +48,7 @@ final class Duel extends Match
 
     protected function isMatchFinished(): bool
     {
-        return $this->round === 5;
+        return $this->round === 6;
     }
 
     private function randomAbility(): string
