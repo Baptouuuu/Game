@@ -14,7 +14,9 @@
         "issues": "http://github.com/Baptouuuu/Game/issues"
     },
     "require": {
-        "php": "~7.1"
+        "php": "~7.1",
+        "innmind/immutable": "^2.2",
+        "symfony/var-dumper": "^3.2"
     },
     "autoload": {
         "psr-4": {
