@@ -23,8 +23,8 @@ class DamageTest extends TestCase
     public function testInflict()
     {
         $damage = new Damage(30);
-        $attacker = new Player;
-        $opponent = new Player;
+        $attacker = new Player('foo');
+        $opponent = new Player('foo');
 
         $this->assertNull($damage->inflict($attacker, $opponent));
         $this->assertSame(100, $attacker->health());

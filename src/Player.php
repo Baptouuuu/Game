@@ -10,12 +10,13 @@ use Game\{
 
 final class Player
 {
+    private $name;
     private $health = 100;
     private $weapon;
     private $defense;
     private $ability;
 
-    public function __construct(string $ability = null)
+    public function __construct(string $name, string $ability = null)
     {
         $weapon = new Weapon;
         $defense = new NullDefense;
@@ -36,6 +37,7 @@ final class Player
                 break;
         }
 
+        $this->name = $name;
         $this->weapon = $weapon;
         $this->defense = $defense;
         $this->ability = $ability;
@@ -68,5 +70,10 @@ final class Player
     public function isDead(): bool
     {
         return $this->health === 0;
+    }
+
+    public function __toString(): string
+    {
+        return sprintf('%s (%s HP)', $this->name, $this->health);
     }
 }

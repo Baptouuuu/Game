@@ -27,9 +27,9 @@ final class DeathMatch extends Match
     protected function gatherPlayers()
     {
         $this->players = (new Set(Player::class))
-            ->add(new Player($this->randomAbility()))
-            ->add(new Player($this->randomAbility()))
-            ->add(new Player($this->randomAbility()));
+            ->add(new Player('alice', $this->randomAbility()))
+            ->add(new Player('bob', $this->randomAbility()))
+            ->add(new Player('eve', $this->randomAbility()));
 
         return $this->players->toPrimitive();
     }

@@ -22,8 +22,8 @@ class ResultBoardtest extends TestCase
 
     public function testWinner()
     {
-        $alice = new Player;
-        $bob = new Player;
+        $alice = new Player('foo');
+        $bob = new Player('foo');
         $alice->damage(10);
         $board = new ResultBoard($alice, $bob);
 
@@ -34,8 +34,8 @@ class ResultBoardtest extends TestCase
 
     public function testLoser()
     {
-        $alice = new Player;
-        $bob = new Player;
+        $alice = new Player('foo');
+        $bob = new Player('foo');
         $alice->damage(10);
         $board = new ResultBoard($alice, $bob);
 
@@ -46,8 +46,8 @@ class ResultBoardtest extends TestCase
 
     public function testWinnerWhenFrozen()
     {
-        $alice = new Player;
-        $bob = new Player;
+        $alice = new Player('foo');
+        $bob = new Player('foo');
         $alice->damage(10);
         $board = new ResultBoard($alice, $bob);
 
@@ -59,8 +59,8 @@ class ResultBoardtest extends TestCase
 
     public function testLoserWhenFrozen()
     {
-        $alice = new Player;
-        $bob = new Player;
+        $alice = new Player('foo');
+        $bob = new Player('foo');
         $alice->damage(10);
         $board = new ResultBoard($alice, $bob);
 

@@ -19,12 +19,12 @@ class PlayerTest extends TestCase
 {
     public function testDefaultHealth()
     {
-        $this->assertSame(100, (new Player)->health());
+        $this->assertSame(100, (new Player('foo'))->health());
     }
 
     public function testIsDead()
     {
-        $player = new Player;
+        $player = new Player('foo');
 
         $this->assertFalse($player->isDead());
         $player->damage(100);
@@ -33,7 +33,7 @@ class PlayerTest extends TestCase
 
     public function testNoDefenseByDefault()
     {
-        $player = new Player;
+        $player = new Player('foo');
 
         foreach (range(0, 99) as $round) {
             $player->damage(1);
@@ -44,7 +44,7 @@ class PlayerTest extends TestCase
 
     public function testNoDefenseByDefaultEvenWhenEnablingAbility()
     {
-        $player = new Player;
+        $player = new Player('foo');
 
         foreach (range(0, 99) as $round) {
             $player->enableAbility();
@@ -64,7 +64,7 @@ class PlayerTest extends TestCase
                 self::$enabled = true;
             }
         };
-        $player = new Player(get_class($ability));
+        $player = new Player('foo', get_class($ability));
 
         $player->enableAbility();
         $this->assertFalse($ability::$enabled);
@@ -84,7 +84,7 @@ class PlayerTest extends TestCase
             {
             }
         };
-        $player = new Player(get_class($ability));
+        $player = new Player('foo', get_class($ability));
 
         $this->assertNull($player->enableAbility());
         $this->assertTrue($ability::$enabled);
@@ -106,8 +106,8 @@ class PlayerTest extends TestCase
                 return new Damage(20);
             }
         };
-        $player = new Player(get_class($ability));
-        $opponent = new Player;
+        $player = new Player('foo', get_class($ability));
+        $opponent = new Player('foo');
 
         $damage = $player->attack($opponent);
 
@@ -128,8 +128,8 @@ class PlayerTest extends TestCase
                 return $damage - 5;
             }
         };
-        $player = new Player;
-        $opponent = new Player(get_class($ability));
+        $player = new Player('foo');
+        $opponent = new Player('foo', get_class($ability));
 
         $damage = $player->attack($opponent);
 

@@ -35,20 +35,20 @@ class DamageMultiplicatorTest extends TestCase
     public function testHitWithoutBeingEnabled()
     {
         $weapon = new DamageMultiplicator(new Weapon);
-        $opponent = new Player;
+        $opponent = new Player('foo');
 
         $damage = $weapon->hit($opponent);
 
         $this->assertInstanceOf(Damage::class, $damage);
         $this->assertSame(100, $opponent->health());
-        $damage->inflict(new Player, $opponent);
+        $damage->inflict(new Player('foo'), $opponent);
         $this->assertSame(90, $opponent->health());
     }
 
     public function testIncreaseDamageWhenEnabled()
     {
         $weapon = new DamageMultiplicator(new Weapon);
-        $opponent = new Player;
+        $opponent = new Player('foo');
         $weapon->enable();
 
         $damage = $weapon->hit($opponent);
@@ -59,15 +59,15 @@ class DamageMultiplicatorTest extends TestCase
 
         $this->assertInstanceOf(Damage::class, $damage);
         $this->assertSame(100, $opponent->health());
-        $damage->inflict(new Player, $opponent);
+        $damage->inflict(new Player('foo'), $opponent);
         $this->assertSame(80, $opponent->health());
     }
 
     public function testBackfireInOneOutOfFiveChances()
     {
         $weapon = new DamageMultiplicator(new Weapon);
-        $opponent = new Player;
-        $attacker = new Player;
+        $opponent = new Player('foo');
+        $attacker = new Player('foo');
         $backfires = 0;
         $backfire = null;
 
@@ -91,8 +91,8 @@ class DamageMultiplicatorTest extends TestCase
     public function testDisableOneCalled()
     {
         $weapon = new DamageMultiplicator(new Weapon);
-        $opponent = new Player;
-        $attacker = new Player;
+        $opponent = new Player('foo');
+        $attacker = new Player('foo');
         $weapon->enable();
         $weapon->hit($opponent);
 

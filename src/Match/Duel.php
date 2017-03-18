@@ -27,8 +27,8 @@ final class Duel extends Match
      */
     protected function gatherPlayers()
     {
-        $this->alice = new Player($this->randomAbility());
-        $this->bob = new Player($this->randomAbility());
+        $this->alice = new Player('alice', $this->randomAbility());
+        $this->bob = new Player('bob', $this->randomAbility());
 
         return [$this->alice, $this->bob];
     }
