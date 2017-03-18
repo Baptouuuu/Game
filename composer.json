@@ -1,0 +1,35 @@
+{
+    "name": "baptouuuu/game",
+    "type": "project",
+    "description": "test project",
+    "homepage": "http://github.com/Baptouuuu/Game",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Baptiste Langlade",
+            "email": "langlade.baptiste@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "http://github.com/Baptouuuu/Game/issues"
+    },
+    "require": {
+        "php": "~7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Game\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Game\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --colors=always"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.0"
+    }
+}
