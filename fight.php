@@ -11,7 +11,7 @@ $result = $match->run();
 
 echo 'type => ';
 dump($match->type());
-echo 'winner => ';
+echo 'winner => '.$result->winner()."\n";
 dump($result->winner());
-echo 'loser => ';
+echo 'loser => '.$result->loser()."\n";
 dump($result->loser());
